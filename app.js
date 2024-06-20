@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-console.log("MONGO_URI:", process.env.ATLAS_URI);
 const port = process.env.PORT || 3000;
 
 const dbo = require("./db/conn");
@@ -13,7 +12,7 @@ const authRoutes = require("./routes/auth_routes");
 console.log("MONGO_URI:", process.env.ATLAS_URI);
 
 const corsOptions = {
-  origin: ["https://your-frontend-domain.netlify.app", "http://localhost:3000"],
+  origin: ["https://cryptrade.netlify.app", "http://localhost:5173"],
   optionsSuccessStatus: 200,
 };
 
