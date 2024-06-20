@@ -13,7 +13,7 @@
     }
   ],
   "env": {
-    "ATLAS_URI": "your_mongodb_uri",
+    "ATLAS_URI": "mongodb+srv://hanjuho0:Gks248650@cluster.wtdzyt8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster",
     "PORT": "3000"
   }
 }
