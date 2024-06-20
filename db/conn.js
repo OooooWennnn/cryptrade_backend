@@ -1,30 +1,33 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 const Db = process.env.ATLAS_URI;
-const client = new MongoClient(Db);
+const client = new MongoClient(Db, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 var _db;
 
 async function connectToServer() {
-  let response = { connected: false, message: '' };
+  let response = { connected: false, message: "" };
   try {
     await client.connect();
-    _db = client.db('cryptrade');
+    _db = client.db("cryptrade");
     response.connected = true;
-    response.message = 'Successfully connected to MongoDb';
+    response.message = "Successfully connected to MongoDb";
   } catch (error) {
-    response.message = 'Failed to connect to MongoDB';
+    response.message = "Failed to connect to MongoDB";
   }
   console.log(response.message);
   return response;
 }
 
 function getDB() {
-  if (!_db) throw new Error('Database connection is not established.');
+  if (!_db) throw new Error("Database connection is not established.");
 
   return _db;
 }
 
-function getCollection(collectionName = 'users') {
+function getCollection(collectionName = "users") {
   const db = getDB();
   return db.collection(collectionName);
 }
