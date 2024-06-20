@@ -10,8 +10,14 @@ const dbo = require("./db/conn");
 const tradeRoutes = require("./routes/trade_routes");
 const premiumRoutes = require("./routes/premium_routes");
 const authRoutes = require("./routes/auth_routes");
+console.log("MONGO_URI:", process.env.ATLAS_URI);
 
-app.use(cors());
+const corsOptions = {
+  origin: ["https://your-frontend-domain.netlify.app", "http://localhost:3000"],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api/trade", tradeRoutes);
