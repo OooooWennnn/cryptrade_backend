@@ -9,7 +9,7 @@ const dbo = require("./db/conn");
 const tradeRoutes = require("./routes/trade_routes");
 const premiumRoutes = require("./routes/premium_routes");
 const authRoutes = require("./routes/auth_routes");
-console.log("MONGO_URI:", process.env.ATLAS_URI);
+console.log("MONGO_URI:", process.env.MONGODB_URI);
 
 const corsOptions = {
   origin: ["https://cryptrade.netlify.app", "http://localhost:5173"],

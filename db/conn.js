@@ -1,5 +1,10 @@
 const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
+
+if (!process.env.MONGODB_URI) {
+  throw new Error('"Invalid/Missing environment variable:"MONGODB_URI"');
+}
+
+const Db = process.env.MONGODB_URI;
 const client = new MongoClient(Db);
 
 var _db;
