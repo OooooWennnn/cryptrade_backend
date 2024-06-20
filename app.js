@@ -11,7 +11,13 @@ const tradeRoutes = require("./routes/trade_routes");
 const premiumRoutes = require("./routes/premium_routes");
 const authRoutes = require("./routes/auth_routes");
 
-app.use(cors());
+const corsConfig = {
+  origin: "*",
+  credential: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.use(cors(corsConfig));
 app.use(express.json());
 
 app.use("/api/trade", tradeRoutes);
