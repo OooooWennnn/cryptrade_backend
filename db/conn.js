@@ -13,6 +13,7 @@ async function connectToServer() {
     response.message = "Successfully connected to MongoDb";
   } catch (error) {
     response.message = "Failed to connect to MongoDB";
+    console.error(error);
   }
   console.log(response.message);
   return response;

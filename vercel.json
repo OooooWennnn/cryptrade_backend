@@ -11,5 +11,9 @@
       "src": "/(.*)",
       "dest": "app.js"
     }
-  ]
+  ],
+  "env": {
+    "ATLAS_URI": "your_mongodb_uri",
+    "PORT": "3000"
+  }
 }
